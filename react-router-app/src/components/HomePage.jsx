@@ -1,7 +1,12 @@
-import { Link } from "react-router-dom";
+
 import "../index.css";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
+  const navigate=useNavigate()
+  function handle(){
+    navigate("/contact")
+  }
   return (
     <div className="home-container">
       <h1 className="title">Welcome to My Website 👋</h1>
@@ -10,9 +15,8 @@ function HomePage() {
         This is a simple React Router demo. Click below to explore the Contact Page.
       </p>
 
-      <Link to="/contact">
-        <button className="btn">Go to Contact Page</button>
-      </Link>
+        <button className="btn" onClick={handle}>Go to Contact Page</button>
+     
     </div>
   );
 }
