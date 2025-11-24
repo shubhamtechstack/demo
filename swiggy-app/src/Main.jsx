@@ -1,4 +1,4 @@
- function Main() {
+ function Mainapp() {
   return (
     <div className="w-full bg-white py-20 flex flex-col items-center">
       {/* TITLE */}
