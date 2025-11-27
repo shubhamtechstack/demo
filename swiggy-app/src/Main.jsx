@@ -1,4 +1,4 @@
- function Mainapp() {
+function Mainapp() {
   return (
     <div className="w-full bg-white py-20 flex flex-col items-center">
       {/* TITLE */}
@@ -48,4 +48,4 @@
     </div>
   );
 }
-export default Main
+export default Mainapp

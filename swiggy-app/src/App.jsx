@@ -1,7 +1,6 @@
-import { useState } from 'react'
-import Main from './Mainapp'
+
+import Main from './Main'
 import Footer from './footer'
-import viteLogo from '/vite.svg'
 import Landing from './landing'
 
 
