@@ -1,13 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import {useNavigate,BrowserRouter} from "react-router-dom"
 const Landing = () => {
+  const navigate=useNavigate()
+  function handlelogin(){
+    navigate("./aboutus")
+  }
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-orange-400 to-red-600 flex flex-col items-center justify-center text-white p-6">
       {/* NAVBAR */}
       <div className="w-full max-w-6xl flex justify-between items-center py-4">
         <h1 className="text-3xl font-bold">FoodExpress</h1>
-        <button className="bg-white text-red-600 px-4 py-2 rounded-xl font-semibold shadow">
+        <button onClick={handlelogin} className="bg-white text-red-600 px-4 py-2 rounded-xl font-semibold shadow">
           Login
         </button>
       </div>
