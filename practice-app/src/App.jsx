@@ -1,51 +1,30 @@
-import { useState,useCallback,useEffect } from 'react'
+import { useState,useRef,useEffect } from 'react'
 function App() {
  
-  //   const [count, setCount] = useState(0);
-  // const [calculation, setCalculation] = useState(0);
+ 
+  const [inputValue, setInputValue] = useState("");
+  const previousInputValue = useRef("");
+  console.log(inputValue);
+  
+console.log(previousInputValue);
 
-  // useEffect(() => {
-  //   setCalculation(count * 2);
-  // }, [count]); // <- add the count variable here
-
-  // return (
-  //   <>
-  //     <p>Count: {count}</p>
-  //     <button onClick={() => setCount((c) => c + 1)}>+</button>
-  //     <p>Calculation: {calculation}</p>
-  //   </>
-  // );
-   const [inputs, setInputs] = useState({});
-
-  const handleChange = (e) => {
-    const name = e.target.name;
-    console.log(name);
+  useEffect(() => {
+    previousInputValue.current = inputValue;
+    // console.log(previousInputValue);
     
-    const value = e.target.value;
-    setInputs(values => ({...values, [name]: value}))
-  }
+  }, [inputValue]);
 
   return (
-    <form>
-      <label>First name:
-      <input 
-        type="text" 
-        name="firstname" 
-        value={inputs.firstname} 
-        onChange={handleChange}
+    <>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
       />
-      </label>
-      <label>Last name:
-        <input 
-          type="text" 
-          name="lastname" 
-          value={inputs.lastname} 
-          onChange={handleChange}
-        />
-      </label>
-      <p>Current values: {inputs.firstname} {inputs.lastname}</p>
-    </form>
-  )
+      <h2>Current Value: {inputValue}</h2>
+      <h2>Previous Value: {previousInputValue.current}</h2>
+    </>
+  );
 }
 
 
