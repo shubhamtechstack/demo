@@ -5,12 +5,17 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Navbar({ onLoginClick }) {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [categoryOpen, setCategoryOpen] = useState(false);
+
 
   function handleCourses() {
     navigate("/courses");
   }
-
+function handletech(){
+  navigate("/tech")
+}
+function handleContact(){
+  navigate("/contact")
+}
   return (
     <nav className="w-full shadow-md bg-white sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -29,24 +34,7 @@ export default function Navbar({ onLoginClick }) {
           </Link>
 
           {/* Categories */}
-          <div
-            className="relative cursor-pointer"
-            onMouseEnter={() => setCategoryOpen(true)}
-            onMouseLeave={() => setCategoryOpen(false)}
-          >
-            <div className="flex items-center gap-1 hover:text-purple-600">
-              Categories <ChevronDown size={16} />
-            </div>
-
-            {categoryOpen && (
-              <div className="absolute top-8 bg-white border shadow-md rounded-md w-40 p-3 space-y-2">
-                <Link className="block hover:text-purple-600">Development</Link>
-                <Link className="block hover:text-purple-600">Business</Link>
-                <Link className="block hover:text-purple-600">Design</Link>
-                <Link className="block hover:text-purple-600">Marketing</Link>
-              </div>
-            )}
-          </div>
+          
 
           {/* Courses */}
           <button
@@ -56,9 +44,15 @@ export default function Navbar({ onLoginClick }) {
             Courses
           </button>
 
-          <Link className="hover:text-purple-600 transition">
+          <Link  to="/tech" onClick={handletech} className="hover:text-purple-600 transition">
             Teach
           </Link>
+
+<Link  to="/contact"  className="hover:text-purple-600 transition">
+            Contact us
+          </Link>
+
+
 
           {/* Login Signup */}
           <div className="flex gap-4">
@@ -93,23 +87,7 @@ export default function Navbar({ onLoginClick }) {
           </Link>
 
           {/* Mobile Categories */}
-          <div>
-            <div
-              className="flex justify-between items-center cursor-pointer hover:text-purple-600"
-              onClick={() => setCategoryOpen(!categoryOpen)}
-            >
-              Categories <ChevronDown size={18} />
-            </div>
-            {categoryOpen && (
-              <div className="pl-4 mt-2 space-y-2">
-                <Link className="block">Development</Link>
-                <Link className="block">Business</Link>
-                <Link className="block">Design</Link>
-                <Link className="block">Marketing</Link>
-              </div>
-            )}
-          </div>
-
+         
           <button
             onClick={handleCourses}
             className="block hover:text-purple-600"
@@ -117,8 +95,11 @@ export default function Navbar({ onLoginClick }) {
             Courses
           </button>
 
-          <Link className="block hover:text-purple-600">Teach</Link>
+          <Link to="/tech" onClick={handletech} className="block hover:text-purple-600">Teach</Link>
 
+<Link  to="/contact"  onClick={handleContact} className="hover:text-purple-600 transition">
+            Contact us
+          </Link>
           <button
             onClick={onLoginClick}
             className="w-full border py-2 rounded-md hover:bg-gray-100"

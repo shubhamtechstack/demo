@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import Coursesimg from "../assets/courses.png"
+import { useNavigate } from "react-router-dom";
 export default function CoursesHero() {
+    const navigate = useNavigate();
   return (
     <section className="w-full h-[88vh] bg-gradient-to-r from-purple-900 to-purple-900 text-white py-10 px-6 md:px-20">
       <div className="max-w-6xl  grid md:grid-cols-2 gap-12 items-center">
@@ -21,6 +23,7 @@ export default function CoursesHero() {
           </p>
 
           <motion.button
+          onClick={()=>navigate("/courses#BrowseCourses")}
             className="mt-8 px-6 py-3 bg-white text-purple-700 font-semibold rounded-lg shadow-md hover:scale-105 transition"
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}

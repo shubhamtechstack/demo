@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
-
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 const courses = [
   {
     title: "Java Full Course",
@@ -61,8 +62,24 @@ const courses = [
 ];
 
 export default function ExploreCourses() {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const sectionId = location.hash.replace("#", ""); // # hata diya
+      const element = document.getElementById(sectionId);
+
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100); // ✅ thoda delay — animation/layout ke baad
+      }
+    }
+  }, [location]);
+
   return (
-    <section className="py-20 px-6 md:px-16 bg-purple-50">
+    <section id="BrowseCourses" className="py-20 px-6 md:px-16 bg-purple-50">
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}

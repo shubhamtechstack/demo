@@ -1,31 +1,31 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
-  const socialIcons = [
-    { icon: <FaFacebook />, link: "#" },
-    { icon: <FaInstagram />, link: "#" },
-    { icon: <FaLinkedin />, link: "#" },
-    { icon: <FaTwitter />, link: "#" },
-  ];
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-purple-900 text-white py-14 px-6 md:px-16 mt-20">
-      
-      {/* Top Section */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-10">
+    <footer className="relative w-full bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 text-white overflow-hidden">
+
+      {/* Glow Background */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-pink-500/20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-cyan-500/20 blur-3xl rounded-full"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-12">
 
         {/* Brand */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
-          <h2 className="text-2xl font-bold">EduPro</h2>
-          <p className="mt-4 text-purple-200">
-            Learn anything, anytime, anywhere. Upgrade your skills with top instructors.
+          <h2 className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-cyan-400">
+            LearnHub
+          </h2>
+          <p className="mt-4 text-gray-300 text-sm leading-relaxed">
+            LearnHub is a modern learning platform helping students master tech
+            skills with structured roadmaps, live projects & real-world guidance.
           </p>
         </motion.div>
 
@@ -33,82 +33,68 @@ const Footer = () => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
-          <ul className="space-y-3 text-purple-200">
-            <li className="hover:text-white cursor-pointer transition">Home</li>
-            <li className="hover:text-white cursor-pointer transition">Courses</li>
-            <li className="hover:text-white cursor-pointer transition">Teach</li>
-            <li className="hover:text-white cursor-pointer transition">Contact</li>
+          <h3 className="text-xl font-semibold mb-5">Quick Links</h3>
+          <ul className="space-y-3 text-gray-300">
+            {["Home", "Courses", "Tech", "Contact"].map((item, i) => (
+              <li
+                key={i}
+                className="hover:text-white hover:translate-x-1 transition cursor-pointer"
+              >
+                {item}
+              </li>
+            ))}
           </ul>
         </motion.div>
 
-        {/* Categories */}
+        {/* Tech Stack */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h3 className="text-xl font-semibold mb-4">Categories</h3>
-          <ul className="space-y-3 text-purple-200">
-            <li className="hover:text-white cursor-pointer transition">Frontend</li>
-            <li className="hover:text-white cursor-pointer transition">Backend</li>
-            <li className="hover:text-white cursor-pointer transition">Data Science</li>
-            <li className="hover:text-white cursor-pointer transition">Java & DSA</li>
+          <h3 className="text-xl font-semibold mb-5">Popular Tracks</h3>
+          <ul className="space-y-3 text-gray-300">
+            <li>Frontend Development</li>
+            <li>Backend Development</li>
+            <li>Full Stack</li>
+            <li>Data Science</li>
+            <li>Cyber Security</li>
           </ul>
         </motion.div>
 
-        {/* Social Icons */}
+        {/* Newsletter */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
+          <h3 className="text-xl font-semibold mb-5">Stay Updated</h3>
+          <p className="text-gray-300 text-sm mb-4">
+            Get free learning tips & updates directly in your inbox.
+          </p>
 
-          <div className="flex space-x-4 mt-3">
-            {socialIcons.map((s, i) => (
-              <motion.a
-                key={i}
-                href={s.link}
-                className="text-2xl p-3 rounded-full bg-purple-800 hover:bg-purple-600 transition"
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.2 }}
-                whileHover={{ scale: 1.2 }}
-              >
-                {s.icon}
-              </motion.a>
-            ))}
+          <div className="flex items-center gap-2">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full px-4 py-2 rounded-lg bg-white/10 text-white outline-none focus:ring-2 focus:ring-cyan-400"
+            />
+            <button className="px-5 py-2 rounded-lg bg-gradient-to-r from-pink-600 to-cyan-600 hover:scale-110 transition font-semibold">
+              Join
+            </button>
           </div>
         </motion.div>
-
       </div>
 
-      {/* Bottom Divider */}
-      <motion.div
-        initial={{ width: "0%" }}
-        whileInView={{ width: "100%" }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="h-[1px] bg-purple-400 mt-10"
-      />
-
-      {/* Copyright */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.3 }}
-        className="text-center text-purple-200 mt-6"
-      >
-        © {new Date().getFullYear()} EduPro. All Rights Reserved.
-      </motion.p>
+      {/* Bottom Bar */}
+      <div className="relative z-10 border-t border-white/20 py-6 text-center text-gray-300 text-sm">
+        © {year} LearnHub. All Rights Reserved. | Made with ❤️ for Developers
+      </div>
     </footer>
   );
 };
