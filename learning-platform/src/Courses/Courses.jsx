@@ -7,7 +7,7 @@ import ExploreCourses from "./ExploreCourses";
 export default function Courses(){
 return(
     <>
-    <Navbar/>
+   
     <CoursesHero/>
     <ExploreCourses/>
     <Footer/>

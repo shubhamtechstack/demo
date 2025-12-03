@@ -6,7 +6,6 @@ import CareerRoadmaps from "./CareerRoadmaps"
 export default function Tech(){
     return(
         <>
-        <Navbar/>
         <ProgrammingLanguages/>
         <FrontendDevelopment/>
         <CareerRoadmaps/>

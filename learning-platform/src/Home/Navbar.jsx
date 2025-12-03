@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Navbar({ onLoginClick }) {
+export default function Navbar({ onLoginClick,onSignup }) {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -63,7 +63,7 @@ function handleContact(){
               Login
             </button>
 
-            <button className="px-4 py-1 bg-purple-600 text-white rounded-md hover:bg-purple-700">
+            <button onClick={onSignup} className="px-4 py-1 bg-purple-600 text-white rounded-md hover:bg-purple-700">
               Signup
             </button>
           </div>
@@ -107,7 +107,7 @@ function handleContact(){
             Login
           </button>
 
-          <button className="w-full py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700">
+          <button onClick={onSignup} className="w-full py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700">
             Signup
           </button>
         </div>

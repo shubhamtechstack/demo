@@ -6,7 +6,6 @@ import SupportSection from "./SupportSection"
 function Contact(){
     return(
         <>
-        <Navbar/>
         <ContactHero/>
         <ContactForm/>
         <SupportSection/>
