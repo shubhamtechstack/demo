@@ -5,7 +5,7 @@ import Home from "./Home/Home";
 import Courses from "./Courses/Courses";
 import Tech from "./Tech/Tech";
 import Contact from "./Contact/Contact";
-
+import CourseDetails from "./Courses/CourseDetails";
 import ScrollToTop from "./ScrollToTop";
 import Navbar from "./Home/Navbar";
 import LoginForm from "./Auth/LoginForm";
@@ -44,6 +44,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/courses/:slug" element={<CourseDetails />} />
+
           <Route path="/tech" element={<Tech />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
